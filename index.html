@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.dark.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* background-color: black; */
+        }
+        
+        .date {
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+        
+        .da * {
+            box-sizing: border-box
+        }
+        /* Add padding to containers */
+        
+        #reg {
+            margin-top: 50px;
+        }
+        
+        .r .container {
+            padding: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="border p-4 text-center mb-4">
+        <section class="text-center">
+            <h1>Attendance</h1>
+            <hr class="my-4">
+            <h3>YDRGZM</h3>
+            <hr class="my-4">
+            <div class="form-outline mb-4">
+                <input type="text" id="fileName" class="form-control" autocomplete="off">
+                <label class="form-label" for="fileName" style="margin-left: 0px">File Name</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+            <button type="button" class="all btn btn-light btn-rounded ripple-surface">
+                Select All
+              </button>
+            <button type="button" class="unAll btn btn-danger btn-rounded ripple-surface">
+                Un Select All
+              </button>
+        </section>
+        <div id="reg" class="row">
+            <div id="col1" class="col-4 mb-4 btn-group-vertical">
+            </div>
+            <div id="col2" class="col-4 mb-4  btn-group-vertical">
+            </div>
+            <div id="col3" class="col-4 mb-4 btn-group-vertical">
+            </div>
+
+        </div>
+        <button class="btn btn-primary ripple-surface tbBtn">Make Table</button>
+        <section class="tableYD border p-4 text-center mb-4">
+
+        </section>
+        <!-- <button class="saveCSV btn btn-warning ripple-surface">Download CSV</button> -->
+    </section>
+</body>
+<script>
+    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 149, 153, 157]
+    var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 135, 139, 143, 147, 150, 155, '2020-CD-CS-02']
+    var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, "2019-CS-133", 137, 141, 145, 148, 152, 156]
+    window.onload = function() {
+
+        $.each(classArr1, function(index, value) {
+            $("#col1").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+        });
+        $.each(classArr2, function(index, value) {
+            $("#col2").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+        });
+        $.each(classArr3, function(index, value) {
+            $("#col3").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+        });
+        $("#col1").children("button").addClass("btn btn-dark ripple-surface ")
+        $("#col2").children("button").addClass("btn btn-dark ripple-surface ")
+        $("#col3").children("button").addClass("btn btn-dark ripple-surface ")
+    };
+
+    $(document).ready(function() {
+        $('div[id=reg]').on('click', "button[id^=1]", function() {
+            var classYD = $(this).attr("class").split(/\s+/)
+            flag = classYD.indexOf("btn-dark")
+
+            if (flag > -1) {
+                $(this).removeClass("btn-dark")
+                $(this).addClass("btn-success")
+            } else {
+                $(this).removeClass("btn-success")
+                $(this).addClass("btn-dark")
+            }
+        })
+        $('div[id=reg]').on('click', "button[id^=20]", function() {
+            var classYD = $(this).attr("class").split(/\s+/)
+            flag = classYD.indexOf("btn-dark")
+
+            if (flag > -1) {
+                $(this).removeClass("btn-dark")
+                $(this).addClass("btn-success")
+            } else {
+                $(this).removeClass("btn-success")
+                $(this).addClass("btn-dark")
+            }
+        })
+        $('body').on('click', ".saveCSV", function() {
+            file = $('#fileName').val()
+            let table = document.getElementsByTagName("table");
+            TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
+                name: file + `.xlsx`, // fileName you could use any name
+                sheet: {
+                    name: 'Sheet 1' // sheetName
+                }
+            });
+        })
+        $('#fileName').click(function() {
+            $('#fileName').addClass('active')
+        });
+        $('.all').click(function() {
+            $.each($('button[id^=1]'), function() {
+                $(this).removeClass("btn-dark")
+                $(this).addClass("btn-success")
+            })
+            $.each($('button[id^=2]'), function() {
+                $(this).removeClass("btn-dark")
+                $(this).addClass("btn-success")
+            })
+        });
+        $('.unAll').click(function() {
+            $.each($('button[id^=1]'), function() {
+                $(this).removeClass("btn-success")
+                $(this).addClass("btn-dark")
+            })
+            $.each($('button[id^=2]'), function() {
+                $(this).removeClass("btn-success")
+                $(this).addClass("btn-dark")
+            })
+        })
+
+        $('.tbBtn').click(function() {
+            $('.tableYD').empty()
+            tb = '<table class="table table-striped">' +
+                '<thead>' +
+                '<tr>' +
+                '<th scope = "col"> # </th>' +
+                '<th scope = "col"> Present Students </th>' +
+                '<th scope = "col"> Absent </th>' +
+                '</tr></thead><tbody>'
+            present = []
+            $('.btn-success').each(function(ind, obj) {
+                present.push($(this).attr('id'))
+            })
+            absent = []
+            $('.btn-dark').each(function(ind, obj) {
+                    absent.push($(this).attr('id'))
+                })
+                // alert(present.length + ", " + absent.length)
+            pInd = 0
+            aInd = 0
+            sr = 1
+            while (pInd < present.length && aInd < absent.length) {
+                row = '<tr>' +
+                    '<th scope = "row">' + sr + '</th>' +
+                    '<td>' + present[pInd] + '</td>' +
+                    '<td>' + absent[aInd] + '</td>' +
+                    '</tr>'
+                tb += row
+                    // $('.tableYD').append(row)
+                pInd++
+                aInd++
+                sr++
+            }
+
+            if (pInd < present.length) {
+                // alert('aya1')
+                while (pInd < present.length) {
+                    row = '<tr>' +
+                        '<th scope = "row">' + sr + '</th>' +
+                        '<td>' + present[pInd] + '</td>' +
+                        '<td>' + "" + '</td>' +
+                        '</tr>'
+                    tb += row
+
+                    // $('.tableYD').append(row)
+                    pInd++
+                    sr++
+                }
+            } else if (aInd < absent.length) {
+                // alert('aya2')
+                while (aInd < absent.length) {
+                    row = '<tr>' +
+                        '<th scope = "row">' + sr + '</th>' +
+                        '<td>' + "" + '</td>' +
+                        '<td>' + absent[aInd] + '</td>' +
+                        '</tr>'
+                    tb += row
+
+                    // $('.tableYD').append(row)
+                    aInd++
+                    sr++
+                }
+            }
+            tb += '</tbody></table>'
+
+            $('.tableYD').append(tb)
+            $('.tableYD').append('<button class="saveCSV btn btn-warning ripple-surface">Download CSV</button>')
+
+        })
+
+
+    });
+</script>
+
+</html>
