@@ -152,6 +152,9 @@
         })
         $('body').on('click', ".saveCSV", function() {
             file = $('#fileName').val()
+            if (file==""){
+                file="Untitled";
+            }
             let table = document.getElementsByTagName("table");
             TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
                 name: file + `.xlsx`, // fileName you could use any name
