@@ -16,12 +16,17 @@
     <title>YDRGZM</title>
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/admin.css" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.dark.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="css/mdb.min.css" /> -->
+    <link rel="stylesheet" href="css/mdb.dark.min.css" />
     <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script> -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
     <style>
         body {
@@ -46,67 +51,214 @@
         .r .container {
             padding: 16px;
         }
+        
+        .list-group-item {
+            background-color: transparent;
+            border-color: hsla(0, 0%, 100%, .12)
+        }
     </style>
 </head>
 
 <body>
-
-    <section class="border p-4 text-center mb-4">
-        <section class="text-center">
-            <h1>Attendance System</h1>
-            <hr class="my-4">
-            <h3>YDRGZM</h3>
-            <hr class="my-4">
-            <div class="form-outline mb-4">
-                <input type="text" id="fileName" class="form-control" autocomplete="off">
-                <label class="form-label" for="fileName" style="margin-left: 0px">File Name</label>
-                <div class="form-notch">
-                    <div class="form-notch-leading" style="width: 9px"></div>
-                    <div class="form-notch-middle" style="width: 88.8px;"></div>
-                    <div class="form-notch-trailing"></div>
-                </div>
-                <div class="form-notch">
-                    <div class="form-notch-leading" style="width: 9px;"></div>
-                    <div class="form-notch-middle" style="width: 88.8px;"></div>
-                    <div class="form-notch-trailing"></div>
+    <header>
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="d-lg-block sidebar bg-dark collapse">
+            <div class="position-sticky">
+                <div class="list-group list-group-flush mx-3 mt-4">
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple ripple-surface" aria-current="true">
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active ripple-surface">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic </span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple ripple-surface"><i
+                            class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
                 </div>
             </div>
-            <button type="button" class="all btn btn-light btn-rounded ripple-surface">
+        </nav>
+        <!-- Sidebar -->
+
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">
+                    <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy">
+                </a>
+                <!-- Search form -->
+                <form class="d-none d-md-flex input-group w-auto my-auto">
+                    <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search (ctrl + &quot;/&quot; to focus)" style="min-width: 225px">
+                    <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+                </form>
+
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <!-- Notification dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Some news</a></li>
+                            <li><a class="dropdown-item" href="#">Another news</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link me-3 me-lg-0" href="#">
+                            <i class="fas fa-fill-drip"></i>
+                        </a>
+                    </li>
+                    <!-- Icon -->
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+
+                    <!-- Icon dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="united kingdom flag m-0"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
+                                    <i class="fa fa-check text-success ms-2"></i></a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Avatar -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">My profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <main style="margin-top: 58px">
+        <section class="border p-4 text-center mb-4">
+            <section class="text-center">
+                <h1>Attendance System</h1>
+                <hr class="my-4">
+                <h3>YDRGZM</h3>
+                <hr class="my-4">
+                <div class="form-outline mb-4">
+                    <input type="text" id="fileName" class="form-control" autocomplete="off">
+                    <label class="form-label" for="fileName" style="margin-left: 0px">File Name</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px"></div>
+                        <div class="form-notch-middle" style="width: 88.8px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;"></div>
+                        <div class="form-notch-middle" style="width: 88.8px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                </div>
+                <button type="button" class="all btn btn-light btn-rounded ripple-surface">
                 Select All
-              </button>
-            <button type="button" class="unAll btn btn-danger btn-rounded ripple-surface">
+            </button>
+                <button type="button" class="unAll btn btn-danger btn-rounded ripple-surface">
                 Un Select All
-              </button>
+            </button>
+            </section>
+            <div id="reg" class="row">
+                <div id="col1" class="col-4 mb-4 btn-group-vertical">
+                </div>
+                <div id="col2" class="col-4 mb-4  btn-group-vertical">
+                </div>
+                <div id="col3" class="col-4 mb-4 btn-group-vertical">
+                </div>
+
+            </div>
+            <button class="btn btn-primary ripple-surface tbBtn">Make Table</button>
+            <section class="tableYD border p-4 text-center mb-4">
+
+            </section>
+            <!-- <button class="saveCSV btn btn-warning ripple-surface">Download CSV</button> -->
         </section>
-        <div id="reg" class="row">
-            <div id="col1" class="col-4 mb-4 btn-group-vertical">
+        <footer class="bg-transparent  text-center text-lg-start">
+
+
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                © 2021 Copyright:
+                <a class="text-info" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
             </div>
-            <div id="col2" class="col-4 mb-4  btn-group-vertical">
-            </div>
-            <div id="col3" class="col-4 mb-4 btn-group-vertical">
-            </div>
-
-        </div>
-        <button class="btn btn-primary ripple-surface tbBtn">Make Table</button>
-        <section class="tableYD border p-4 text-center mb-4">
-
-        </section>
-        <!-- <button class="saveCSV btn btn-warning ripple-surface">Download CSV</button> -->
-    </section>
-    <footer class="bg-transparent  text-center text-lg-start">
-
-
-
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-            © 2021 Copyright:
-            <a class="text-info" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
+            <!-- Copyright -->
+        </footer>
+    </main>
 </body>
 <script>
-    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 149, 153, 157]
+    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 149, 153, 157, "2021-CD-CS-03"]
     var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 135, 139, 143, 147, 150, 155, '2020-CD-CS-02']
     var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 132, 137, 141, 145, 148, 152, 156, "2019-CS-133"]
     window.onload = function() {
@@ -192,7 +344,7 @@
             tb = '<table class="table table-striped">' +
                 '<thead>' +
                 '<tr>' +
-                '<th scope = "col"> # </th>' +
+                '<th scope = "col"> Sr. </th>' +
                 '<th scope = "col"> Present Students </th>' +
                 '<th scope = "col"> Absent </th>' +
                 '</tr></thead><tbody>'
