@@ -71,8 +71,8 @@
                     <a href="excelAtt.html" class="list-group-item list-group-item-action py-2 ripple ripple-surface">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Create Excel </span>
                     </a>
-                    <a href="counter.htm" class="list-group-item list-group-item-action py-2 ripple ripple-surface"><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Counter</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple ripple-surface"><i
+                            class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                             class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple">
@@ -222,12 +222,29 @@
                         <div class="form-notch-trailing"></div>
                     </div>
                 </div>
+                <div class="form-outline mb-4">
+                    <input type="text" id="regNumber" class="form-control" autocomplete="off">
+                    <label class="form-label" for="regNumber" style="margin-left: 0px">Registration Number</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px"></div>
+                        <div class="form-notch-middle" style="width: 88.8px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;"></div>
+                        <div class="form-notch-middle" style="width: 88.8px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                    <button type="button" class="addReg btn btn-light btn-rounded ripple-surface">
+                        Add
+                    </button>
+                </div>
                 <button type="button" class="all btn btn-light btn-rounded ripple-surface">
-                Select All
-            </button>
+                    Select All
+                </button>
                 <button type="button" class="unAll btn btn-danger btn-rounded ripple-surface">
-                Un Select All
-            </button>
+                    Un Select All
+                </button>
             </section>
             <div id="reg" class="row">
                 <div id="col1" class="col-4 mb-4 btn-group-vertical">
@@ -318,6 +335,9 @@
         $('#fileName').click(function() {
             $('#fileName').addClass('active')
         });
+        $('#regNumber').click(function() {
+            $('#regNumber').addClass('active')
+        });
         $('.all').click(function() {
             $.each($('button[id^=1]'), function() {
                 $(this).removeClass("btn-dark")
@@ -326,6 +346,16 @@
             $.each($('button[id^=2]'), function() {
                 $(this).removeClass("btn-dark")
                 $(this).addClass("btn-success")
+            })
+        });
+        $('.addReg').click(function() {
+            n = $('#regNumber').val()
+            alert(n);
+            var a = "#" + n;
+            alert(a);
+            $.each($('button[id=n]'), function() {
+                $(a).removeClass("btn-dark")
+                $(a).addClass("btn-success")
             })
         });
         $('.unAll').click(function() {

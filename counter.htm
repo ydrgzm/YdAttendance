@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Counter</title>
+    <link rel="stylesheet" href="css/mdb.dark.min.css" />
+
+</head>
+
+<body>
+
+    <div id="reg" style="margin: 5pc;">
+        <p class="text">ClO 1</p>
+        <p class="count1">0</p>
+        <button type="button" class="all btn btn-light btn-rounded ripple-surface" id="one1" style="padding: 1pc;">1</button>
+        <button type="button" class="all btn btn-light btn-rounded ripple-surface" id="half1" style="padding: 1pc;">0.5</button>
+        <p class="text">ClO 2</p>
+        <p class="count2">0</p>
+        <button type="button" class="all btn btn-light btn-rounded ripple-surface" id="one2" style="padding: 1pc;">1</button>
+        <button type="button" class="all btn btn-light btn-rounded ripple-surface" id="half2" style="padding: 1pc;">0.5</button>
+        <p class="text">ClO 3</p>
+        <p class="count3">0</p>
+        <button type="button" class="all btn btn-light btn-rounded ripple-surface" id="one3" style="padding: 1pc;">1</button>
+        <button type="button" class="all btn btn-light btn-rounded ripple-surface" id="half3" style="padding: 1pc;">0.5</button>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function() {
+        $('div[id=reg]').on('click', "button[id^=one]", function() {
+            var str = $(this).attr('id');
+            var num = '.count' + str[str.length - 1];
+            var value = $(num).text();
+            var n = parseFloat(value) + 1;
+            $(num).text(n);
+        })
+        $('div[id=reg]').on('click', "button[id^=half]", function() {
+            var str = $(this).attr('id');
+            var num = '.count' + str[str.length - 1];
+            var value = $(num).text();
+            var n = parseFloat(value) + 0.5;
+            $(num).text(n);
+        })
+    });
+</script>
+
+</html>
