@@ -65,11 +65,11 @@
         <nav id="sidebarMenu" class="d-lg-block sidebar bg-dark collapse">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active ripple-surface" aria-current="true">
+                    <a href="index.html" class="list-group-item list-group-item-action py-2 ripple  ripple-surface" aria-current="true">
                         <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Mark Attendance</span>
                     </a>
-                    <a href="excelAtt.html" class="list-group-item list-group-item-action py-2 ripple ripple-surface">
-                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Create Excel </span>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active ripple-surface">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Calculate Weightage</span>
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple ripple-surface"><i
                             class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
@@ -204,67 +204,90 @@
     <main style="margin-top: 58px">
         <section class="border p-4 text-center mb-4">
             <section class="text-center">
-                <h1>Attendance System</h1>
+                <h1>Weightage Finder</h1>
                 <hr class="my-4">
                 <h3>YDRGZM</h3>
                 <hr class="my-4">
-                <div class="form-outline mb-4">
-                    <input type="text" id="fileName" class="form-control" autocomplete="off">
-                    <label class="form-label" for="fileName" style="margin-left: 0px">File Name</label>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px;"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                </div>
-                <div class="form-outline mb-4">
-                    <input type="text" id="regNumber" class="form-control" autocomplete="off">
-                    <label class="form-label" for="regNumber" style="margin-left: 0px">Registration Number</label>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px;"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                    <button type="button" class="addReg btn btn-light btn-rounded ripple-surface">
-                        Add
-                    </button>
-                </div>
-                <button type="button" class="all btn btn-light btn-rounded ripple-surface">
-                    Select All
-                </button>
-                <button type="button" class="unAll btn btn-danger btn-rounded ripple-surface">
-                    Un Select All
-                </button>
             </section>
-            <div id="reg" class="row">
-                <div id="col1" class="col-4 mb-4 btn-group-vertical">
+            <div class="form-outline mb-4">
+                <input type="text" id="mid" class="form-control" autocomplete="off">
+                <label class="form-label" for="mid" style="margin-left: 0px">Mids Marks</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
                 </div>
-                <div id="col2" class="col-4 mb-4  btn-group-vertical">
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
                 </div>
-                <div id="col3" class="col-4 mb-4 btn-group-vertical">
-                </div>
-
             </div>
-            <button class="btn btn-primary ripple-surface tbBtn">Make Table</button>
-            <section class="tableYD border p-4 text-center mb-4">
+            <div class="form-outline mb-4">
+                <input type="text" id="final" class="form-control" autocomplete="off">
+                <label class="form-label" for="final" style="margin-left: 0px">Final Marks</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" id="assign" class="form-control" autocomplete="off">
+                <label class="form-label" for="assign" style="margin-left: 0px">Assignment Marks</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" id="squiz" class="form-control" autocomplete="off">
+                <label class="form-label" for="squiz" style="margin-left: 0px">Surprise Quiz Marks</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" id="quiz" class="form-control" autocomplete="off">
+                <label class="form-label" for="quiz" style="margin-left: 0px">Quiz Marks</label>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+                <div class="form-notch">
+                    <div class="form-notch-leading" style="width: 9px;"></div>
+                    <div class="form-notch-middle" style="width: 88.8px;"></div>
+                    <div class="form-notch-trailing"></div>
+                </div>
+            </div>
+            <button class="btn btn-primary ripple-surface calBtn">Calculate</button>
+            <p id="result"></p>
 
-            </section>
-            <!-- <button class="saveCSV btn btn-warning ripple-surface">Download CSV</button> -->
         </section>
+
+
+
+
         <footer class="bg-transparent  text-center text-lg-start">
-
-
-
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
                 © 2021 Copyright:
@@ -275,23 +298,8 @@
     </main>
 </body>
 <script>
-    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 149, 153, 157, "2021-CD-CS-03"]
-    var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 135, 139, 143, 147, 150, 155, '2020-CD-CS-02']
-    var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 132, 137, 141, 145, 148, 152, 156, "2019-CS-133"]
     window.onload = function() {
 
-        $.each(classArr1, function(index, value) {
-            $("#col1").append("<button" + " id='" + value + "'>" + value + "</button><br>");
-        });
-        $.each(classArr2, function(index, value) {
-            $("#col2").append("<button" + " id='" + value + "'>" + value + "</button><br>");
-        });
-        $.each(classArr3, function(index, value) {
-            $("#col3").append("<button" + " id='" + value + "'>" + value + "</button><br>");
-        });
-        $("#col1").children("button").addClass("btn btn-dark ripple-surface ")
-        $("#col2").children("button").addClass("btn btn-dark ripple-surface ")
-        $("#col3").children("button").addClass("btn btn-dark ripple-surface ")
     };
 
     $(document).ready(function() {
@@ -307,139 +315,52 @@
                 $(this).addClass("btn-dark")
             }
         })
-        $('div[id=reg]').on('click', "button[id^=20]", function() {
-            var classYD = $(this).attr("class").split(/\s+/)
-            flag = classYD.indexOf("btn-dark")
-
-            if (flag > -1) {
-                $(this).removeClass("btn-dark")
-                $(this).addClass("btn-success")
-            } else {
-                $(this).removeClass("btn-success")
-                $(this).addClass("btn-dark")
-            }
-        })
-        $('body').on('click', ".saveCSV", function() {
-            file = $('#fileName').val()
-            if (file == "") {
-                file = "Untitled";
-            }
-            let table = document.getElementsByTagName("table");
-            TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
-                name: file + `.xlsx`, // fileName you could use any name
-                sheet: {
-                    name: 'Sheet 1' // sheetName
-                }
-            });
-        })
-        $('#fileName').click(function() {
-            $('#fileName').addClass('active')
+        $('#mid').on('input', function() {
+            $('#mid').addClass('active')
         });
-        $('#regNumber').click(function() {
-            $('#regNumber').addClass('active')
+        $('#final').on('input', function() {
+            $('#final').addClass('active')
         });
-        $('.all').click(function() {
-            $.each($('button[id^=1]'), function() {
-                $(this).removeClass("btn-dark")
-                $(this).addClass("btn-success")
-            })
-            $.each($('button[id^=2]'), function() {
-                $(this).removeClass("btn-dark")
-                $(this).addClass("btn-success")
-            })
+        $('#squiz').on('input', function() {
+            $('#squiz').addClass('active')
         });
-        $('.addReg').click(function() {
-            n = $('#regNumber').val()
-            alert(n);
-            var a = "#" + n;
-            alert(a);
-            $.each($('button[id=n]'), function() {
-                $(a).removeClass("btn-dark")
-                $(a).addClass("btn-success")
-            })
+        $('#assign').on('input', function() {
+            $('#assign').addClass('active')
         });
-        $('.unAll').click(function() {
-            $.each($('button[id^=1]'), function() {
-                $(this).removeClass("btn-success")
-                $(this).addClass("btn-dark")
-            })
-            $.each($('button[id^=2]'), function() {
-                $(this).removeClass("btn-success")
-                $(this).addClass("btn-dark")
-            })
-        })
+        $('#quiz').on('input', function() {
+            $('#quiz').addClass('active')
+        });
+        // Mid: 30 marks
+        // Final: 40 marks
+        // Assignments: 10 marks
+        // Surprise Quizzes: 10 marks
+        // Quizzes: 10 marks
+        $('.calBtn').click(function() {
+            $('#result').empty()
+            mid = $('#mid').val()
+            final = $('#final').val()
+            squiz = $('#squiz').val()
+            quiz = $('#quiz').val()
+            assign = $('#assign').val()
+            final = (final / 40);
+            final = final * 30;
+            squiz = squiz / 25;
+            squiz = squiz * 10;
+            quiz = quiz / 45;
+            quiz = quiz * 10;
+            assign = assign / 40;
+            assign = assign * 10;
+            total = parseInt(mid) + parseInt(final) + parseInt(squiz) + parseInt(quiz) + parseInt(assign);
+            p = "<br><p> Percentage : " + total + "</p>";
 
-        $('.tbBtn').click(function() {
-            $('.tableYD').empty()
-            tb = '<table class="table table-striped">' +
-                '<thead>' +
-                '<tr>' +
-                '<th scope = "col"> Sr. </th>' +
-                '<th scope = "col"> Present Students </th>' +
-                '<th scope = "col"> Absent </th>' +
-                '</tr></thead><tbody>'
-            present = []
-            $('.btn-success').each(function(ind, obj) {
-                present.push($(this).attr('id'))
-            })
-            absent = []
-            $('.btn-dark').each(function(ind, obj) {
-                    absent.push($(this).attr('id'))
-                })
-                // alert(present.length + ", " + absent.length)
-            pInd = 0
-            aInd = 0
-            sr = 1
-            while (pInd < present.length && aInd < absent.length) {
-                row = '<tr>' +
-                    '<th scope = "row">' + sr + '</th>' +
-                    '<td>' + present[pInd] + '</td>' +
-                    '<td>' + absent[aInd] + '</td>' +
-                    '</tr>'
-                tb += row
-                    // $('.tableYD').append(row)
-                pInd++
-                aInd++
-                sr++
-            }
 
-            if (pInd < present.length) {
-                // alert('aya1')
-                while (pInd < present.length) {
-                    row = '<tr>' +
-                        '<th scope = "row">' + sr + '</th>' +
-                        '<td>' + present[pInd] + '</td>' +
-                        '<td>' + "" + '</td>' +
-                        '</tr>'
-                    tb += row
-
-                    // $('.tableYD').append(row)
-                    pInd++
-                    sr++
-                }
-            } else if (aInd < absent.length) {
-                // alert('aya2')
-                while (aInd < absent.length) {
-                    row = '<tr>' +
-                        '<th scope = "row">' + sr + '</th>' +
-                        '<td>' + "" + '</td>' +
-                        '<td>' + absent[aInd] + '</td>' +
-                        '</tr>'
-                    tb += row
-
-                    // $('.tableYD').append(row)
-                    aInd++
-                    sr++
-                }
-            }
-            tb += '</tbody></table>'
-
-            $('.tableYD').append(tb)
-            $('.tableYD').append('<button class="saveCSV btn btn-warning ripple-surface">Download</button>')
+            $('#result').append(p)
 
         })
 
     });
 </script>
+
+</html>
 
 </html>
