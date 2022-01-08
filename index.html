@@ -7,72 +7,37 @@
     <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
     <link rel="manifest" href="icon/site.webmanifest">
     <link rel="mask-icon" href="icon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>YD-Tools</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>YDRGZM</title>
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Custom styles -->
     <link rel="stylesheet" href="css/admin.css" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <!-- <link rel="stylesheet" href="css/mdb.min.css" /> -->
-    <link rel="stylesheet" href="css/mdb.dark.min.css" />
-    <!-- MDB -->
-
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script> -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <script type="text/javascript" src="js/admin.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            /* background-color: black; */
-        }
-        
-        .date {
-            margin-left: 5px;
-            margin-right: 10px;
-        }
-        
-        .da * {
-            box-sizing: border-box
-        }
-        /* Add padding to containers */
-        
-        #reg {
-            margin-top: 50px;
-        }
-        
-        .r .container {
-            padding: 16px;
-        }
-        
-        .list-group-item {
-            background-color: transparent;
-            border-color: hsla(0, 0%, 100%, .12)
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!--Main Navigation-->
     <header>
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="d-lg-block sidebar bg-dark collapse">
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active ripple-surface" aria-current="true">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Mark Attendance</span>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>YD Attendance</span>
                     </a>
-                    <a href="calculate.html" class="list-group-item list-group-item-action py-2 ripple ripple-surface">
+                    <a href="admin.html" class="list-group-item list-group-item-action py-2 ripple ">
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>Calculate Weightage</span>
                     </a>
-                    <a href="counter.htm" class="list-group-item list-group-item-action py-2 ripple ripple-surface"><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Counter</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                             class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple">
@@ -96,21 +61,21 @@
         <!-- Sidebar -->
 
         <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
-                <button class="navbar-toggler collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
 
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">
-                    <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy">
+                    <img src="img/yd.png" height="40" alt="" loading="lazy" />
                 </a>
                 <!-- Search form -->
                 <form class="d-none d-md-flex input-group w-auto my-auto">
-                    <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search (ctrl + &quot;/&quot; to focus)" style="min-width: 225px">
+                    <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
                     <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
                 </form>
 
@@ -155,7 +120,7 @@
                                     <i class="fa fa-check text-success ms-2"></i></a>
                             </li>
                             <li>
-                                <hr class="dropdown-divider">
+                                <hr class="dropdown-divider" />
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
@@ -187,7 +152,7 @@
                     <!-- Avatar -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">My profile</a></li>
@@ -201,8 +166,11 @@
         </nav>
         <!-- Navbar -->
     </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
     <main style="margin-top: 58px">
-        <section class="border p-4 text-center mb-4">
+        <div class="container pt-4">
             <section class="text-center">
                 <h1>Attendance System</h1>
                 <hr class="my-4">
@@ -223,12 +191,13 @@
                     </div>
                 </div>
                 <button type="button" class="all btn btn-light btn-rounded ripple-surface">
-                Select All
-            </button>
+                    Select All
+                </button>
                 <button type="button" class="unAll btn btn-danger btn-rounded ripple-surface">
-                Un Select All
-            </button>
+                    Un Select All
+                </button>
             </section>
+            <br>
             <div id="reg" class="row">
                 <div id="col1" class="col-4 mb-4 btn-group-vertical">
                 </div>
@@ -238,178 +207,185 @@
                 </div>
 
             </div>
-            <button class="btn btn-primary ripple-surface tbBtn">Make Table</button>
+            <section class="text-center">
+                <button class="btn btn-primary ripple-surface tbBtn">Make Table</button>
+
+            </section>
             <section class="tableYD border p-4 text-center mb-4">
 
             </section>
             <!-- <button class="saveCSV btn btn-warning ripple-surface">Download CSV</button> -->
-        </section>
-        <footer class="bg-transparent  text-center text-lg-start">
+            </section>
+            <footer class="bg-transparent  text-center text-lg-start">
 
-
-
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                © 2021 Copyright:
-                <a class="text-info" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
-            </div>
-            <!-- Copyright -->
-        </footer>
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: white">
+                    © 2021 Copyright:
+                    <a class="text-info" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+        </div>
     </main>
-</body>
-<script>
-    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 149, 153, 157, "2021-CD-CS-03"]
-    var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 135, 139, 143, 147, 150, 155, '2020-CD-CS-02']
-    var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 132, 137, 141, 145, 148, 152, 156, "2019-CS-133"]
-    window.onload = function() {
+    <!--Main layout-->
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="js/admin.js"></script>
+    <script>
+        var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 149, 153, 157, "2021-CD-CS-03"]
+        var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 135, 139, 143, 147, 150, 155, '2020-CD-CS-02']
+        var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 132, 137, 141, 145, 148, 152, 156, "2019-CS-133"]
+        window.onload = function() {
 
-        $.each(classArr1, function(index, value) {
-            $("#col1").append("<button" + " id='" + value + "'>" + value + "</button><br>");
-        });
-        $.each(classArr2, function(index, value) {
-            $("#col2").append("<button" + " id='" + value + "'>" + value + "</button><br>");
-        });
-        $.each(classArr3, function(index, value) {
-            $("#col3").append("<button" + " id='" + value + "'>" + value + "</button><br>");
-        });
-        $("#col1").children("button").addClass("btn btn-dark ripple-surface ")
-        $("#col2").children("button").addClass("btn btn-dark ripple-surface ")
-        $("#col3").children("button").addClass("btn btn-dark ripple-surface ")
-    };
-
-    $(document).ready(function() {
-        $('div[id=reg]').on('click', "button[id^=1]", function() {
-            var classYD = $(this).attr("class").split(/\s+/)
-            flag = classYD.indexOf("btn-dark")
-
-            if (flag > -1) {
-                $(this).removeClass("btn-dark")
-                $(this).addClass("btn-success")
-            } else {
-                $(this).removeClass("btn-success")
-                $(this).addClass("btn-dark")
-            }
-        })
-        $('div[id=reg]').on('click', "button[id^=20]", function() {
-            var classYD = $(this).attr("class").split(/\s+/)
-            flag = classYD.indexOf("btn-dark")
-
-            if (flag > -1) {
-                $(this).removeClass("btn-dark")
-                $(this).addClass("btn-success")
-            } else {
-                $(this).removeClass("btn-success")
-                $(this).addClass("btn-dark")
-            }
-        })
-        $('body').on('click', ".saveCSV", function() {
-            file = $('#fileName').val()
-            if (file == "") {
-                file = "Untitled";
-            }
-            let table = document.getElementsByTagName("table");
-            TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
-                name: file + `.xlsx`, // fileName you could use any name
-                sheet: {
-                    name: 'Sheet 1' // sheetName
-                }
+            $.each(classArr1, function(index, value) {
+                $("#col1").append("<button" + " id='" + value + "'>" + value + "</button><br>");
             });
-        })
-        $('#fileName').click(function() {
-            $('#fileName').addClass('active')
-        });
-        $('.all').click(function() {
-            $.each($('button[id^=1]'), function() {
-                $(this).removeClass("btn-dark")
-                $(this).addClass("btn-success")
-            })
-            $.each($('button[id^=2]'), function() {
-                $(this).removeClass("btn-dark")
-                $(this).addClass("btn-success")
-            })
-        });
-        $('.unAll').click(function() {
-            $.each($('button[id^=1]'), function() {
-                $(this).removeClass("btn-success")
-                $(this).addClass("btn-dark")
-            })
-            $.each($('button[id^=2]'), function() {
-                $(this).removeClass("btn-success")
-                $(this).addClass("btn-dark")
-            })
-        })
+            $.each(classArr2, function(index, value) {
+                $("#col2").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+            });
+            $.each(classArr3, function(index, value) {
+                $("#col3").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+            });
+            $("#col1").children("button").addClass("btn btn-dark ripple-surface ")
+            $("#col2").children("button").addClass("btn btn-dark ripple-surface ")
+            $("#col3").children("button").addClass("btn btn-dark ripple-surface ")
+        };
 
-        $('.tbBtn').click(function() {
-            $('.tableYD').empty()
-            tb = '<table class="table table-striped">' +
-                '<thead>' +
-                '<tr>' +
-                '<th scope = "col"> Sr. </th>' +
-                '<th scope = "col"> Present Students </th>' +
-                '<th scope = "col"> Absent </th>' +
-                '</tr></thead><tbody>'
-            present = []
-            $('.btn-success').each(function(ind, obj) {
-                present.push($(this).attr('id'))
+        $(document).ready(function() {
+            $('div[id=reg]').on('click', "button[id^=1]", function() {
+                var classYD = $(this).attr("class").split(/\s+/)
+                flag = classYD.indexOf("btn-dark")
+
+                if (flag > -1) {
+                    $(this).removeClass("btn-dark")
+                    $(this).addClass("btn-success")
+                } else {
+                    $(this).removeClass("btn-success")
+                    $(this).addClass("btn-dark")
+                }
             })
-            absent = []
-            $('.btn-dark').each(function(ind, obj) {
-                    absent.push($(this).attr('id'))
+            $('div[id=reg]').on('click', "button[id^=20]", function() {
+                var classYD = $(this).attr("class").split(/\s+/)
+                flag = classYD.indexOf("btn-dark")
+
+                if (flag > -1) {
+                    $(this).removeClass("btn-dark")
+                    $(this).addClass("btn-success")
+                } else {
+                    $(this).removeClass("btn-success")
+                    $(this).addClass("btn-dark")
+                }
+            })
+            $('body').on('click', ".saveCSV", function() {
+                file = $('#fileName').val()
+                if (file == "") {
+                    file = "Untitled";
+                }
+                let table = document.getElementsByTagName("table");
+                TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
+                    name: file + `.xlsx`, // fileName you could use any name
+                    sheet: {
+                        name: 'Sheet 1' // sheetName
+                    }
+                });
+            })
+            $('#fileName').click(function() {
+                $('#fileName').addClass('active')
+            });
+            $('.all').click(function() {
+                $.each($('button[id^=1]'), function() {
+                    $(this).removeClass("btn-dark")
+                    $(this).addClass("btn-success")
                 })
-                // alert(present.length + ", " + absent.length)
-            pInd = 0
-            aInd = 0
-            sr = 1
-            while (pInd < present.length && aInd < absent.length) {
-                row = '<tr>' +
-                    '<th scope = "row">' + sr + '</th>' +
-                    '<td>' + present[pInd] + '</td>' +
-                    '<td>' + absent[aInd] + '</td>' +
-                    '</tr>'
-                tb += row
-                    // $('.tableYD').append(row)
-                pInd++
-                aInd++
-                sr++
-            }
+                $.each($('button[id^=2]'), function() {
+                    $(this).removeClass("btn-dark")
+                    $(this).addClass("btn-success")
+                })
+            });
+            $('.unAll').click(function() {
+                $.each($('button[id^=1]'), function() {
+                    $(this).removeClass("btn-success")
+                    $(this).addClass("btn-dark")
+                })
+                $.each($('button[id^=2]'), function() {
+                    $(this).removeClass("btn-success")
+                    $(this).addClass("btn-dark")
+                })
+            })
 
-            if (pInd < present.length) {
-                // alert('aya1')
-                while (pInd < present.length) {
+            $('.tbBtn').click(function() {
+                $('.tableYD').empty()
+                tb = '<table class="table table-striped">' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th scope = "col"> Sr. </th>' +
+                    '<th scope = "col"> Present Students </th>' +
+                    '<th scope = "col"> Absent </th>' +
+                    '</tr></thead><tbody>'
+                present = []
+                $('.btn-success').each(function(ind, obj) {
+                    present.push($(this).attr('id'))
+                })
+                absent = []
+                $('.btn-dark').each(function(ind, obj) {
+                        absent.push($(this).attr('id'))
+                    })
+                    // alert(present.length + ", " + absent.length)
+                pInd = 0
+                aInd = 0
+                sr = 1
+                while (pInd < present.length && aInd < absent.length) {
                     row = '<tr>' +
                         '<th scope = "row">' + sr + '</th>' +
                         '<td>' + present[pInd] + '</td>' +
-                        '<td>' + "" + '</td>' +
-                        '</tr>'
-                    tb += row
-
-                    // $('.tableYD').append(row)
-                    pInd++
-                    sr++
-                }
-            } else if (aInd < absent.length) {
-                // alert('aya2')
-                while (aInd < absent.length) {
-                    row = '<tr>' +
-                        '<th scope = "row">' + sr + '</th>' +
-                        '<td>' + "" + '</td>' +
                         '<td>' + absent[aInd] + '</td>' +
                         '</tr>'
                     tb += row
-
-                    // $('.tableYD').append(row)
+                        // $('.tableYD').append(row)
+                    pInd++
                     aInd++
                     sr++
                 }
-            }
-            tb += '</tbody></table>'
 
-            $('.tableYD').append(tb)
-            $('.tableYD').append('<button class="saveCSV btn btn-warning ripple-surface">Download</button>')
+                if (pInd < present.length) {
+                    // alert('aya1')
+                    while (pInd < present.length) {
+                        row = '<tr>' +
+                            '<th scope = "row">' + sr + '</th>' +
+                            '<td>' + present[pInd] + '</td>' +
+                            '<td>' + "" + '</td>' +
+                            '</tr>'
+                        tb += row
 
-        })
+                        // $('.tableYD').append(row)
+                        pInd++
+                        sr++
+                    }
+                } else if (aInd < absent.length) {
+                    // alert('aya2')
+                    while (aInd < absent.length) {
+                        row = '<tr>' +
+                            '<th scope = "row">' + sr + '</th>' +
+                            '<td>' + "" + '</td>' +
+                            '<td>' + absent[aInd] + '</td>' +
+                            '</tr>'
+                        tb += row
 
-    });
-</script>
+                        // $('.tableYD').append(row)
+                        aInd++
+                        sr++
+                    }
+                }
+                tb += '</tbody></table>'
+
+                $('.tableYD').append(tb)
+                $('.tableYD').append('<button class="saveCSV btn btn-warning ripple-surface">Download</button>')
+
+            })
+
+        });
+    </script>
+</body>
 
 </html>
