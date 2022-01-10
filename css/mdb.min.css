@@ -2244,6 +2244,7 @@ progress {
 
 .form-label {
     margin-bottom: .5rem;
+    font-size: 13px;
     color: rgba(0, 0, 0, .6)
 }
 
@@ -2503,7 +2504,7 @@ textarea.form-control-lg {
 
 .form-select {
     display: block;
-    width: 100%;
+    width: 115%;
     padding: .375rem 2.25rem .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;

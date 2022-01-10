@@ -10,16 +10,15 @@ window.onload = function() {
             alert("Enter Positive number!");
             document.getElementById("count").value = '';
         } else {
-            var inp = "<table id='tab1' cellspacing='30px' style='width: 100% ;padding: 15px;'>";
+            var inp = "<table id='tab1' cellspacing='30px' style='width: 100% ;padding: 15px; margin-left: -10px;'>";
             inp += "<tbody><tr><th>Courses (Optional)</th><th>Credits</th><th>Grade</th></tr></tbody><tbody>";
             var c = 0;
             for (let index = 0; index < num * 3; index++) {
                 if (c == 0) {
                     inp += "<tr>"
                 } else if (c == 2) {
-                    inp += "<td><select class='form-select row" + (parseInt(index / 3) + 1) + "' style='margin-top:-20px'> <" +
-                        "option selected>Grade</option> <" +
-                        "option value = '4'>A+</option><" +
+                    inp += "<td><select class='form-select row" + (parseInt(index / 3) + 1) + "' style='font-size: 13px; margin-top:-25px'> <" +
+                        "option value = '4' selected>A+</option><" +
                         "option value = '4'>A</option><" +
                         "option value = '3.7'>A-</option><" +
                         "option value = '3.3'>B+</option><" +
