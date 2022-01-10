@@ -1,0 +1,10 @@
+.grid-box {
+    display: grid;
+    grid-template-columns: auto 100px;
+    grid-gap: 10px;
+}
+
+.nextBtn {
+    align-items: center;
+    height: 40px;
+}

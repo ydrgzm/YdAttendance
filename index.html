@@ -21,7 +21,16 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/admin.css" />
     <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
-
+    <style>
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,13 +41,13 @@
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>YD Attendance</span>
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Attendance</span>
                     </a>
-                    <a href="admin.html" class="list-group-item list-group-item-action py-2 ripple ">
-                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Calculate Weightage</span>
+                    <a href="calculateWeightage.html" class="list-group-item list-group-item-action py-2 ripple ">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Find Weightage</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+                    <a href="calculateGpa.html" class="list-group-item list-group-item-action py-2 ripple"><i
+                            class="fas fa-lock fa-fw me-3"></i><span>Find Gpa</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                             class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple">
@@ -66,7 +75,8 @@
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
 
@@ -76,7 +86,8 @@
                 </a>
                 <!-- Search form -->
                 <form class="d-none d-md-flex input-group w-auto my-auto">
-                    <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
+                    <input autocomplete="off" type="search" class="form-control rounded"
+                        placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
                     <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
                 </form>
 
@@ -84,7 +95,8 @@
                 <ul class="navbar-nav ms-auto d-flex flex-row">
                     <!-- Notification dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#"
+                            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-bell"></i>
                             <span class="badge rounded-pill badge-notification bg-danger">1</span>
                         </a>
@@ -100,55 +112,26 @@
                     <!-- Icon -->
                     <li class="nav-item">
                         <a class="nav-link me-3 me-lg-0" href="#">
-                            <i class="fas fa-fill-drip"></i>
+                            <i class="fas fa-fill-drip theme"></i>
                         </a>
                     </li>
                     <!-- Icon -->
                     <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="https://github.com/ydrgzm">
                             <i class="fab fa-github"></i>
                         </a>
                     </li>
 
                     <!-- Icon dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="united kingdom flag m-0"></i>
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown"
+                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="pakistan flag m-0"></i>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
-                                    <i class="fa fa-check text-success ms-2"></i></a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
-                            </li>
-                        </ul>
                     </li>
 
                     <!-- Avatar -->
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
                         </a>
@@ -157,7 +140,7 @@
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Logout</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- Container wrapper -->
@@ -214,12 +197,11 @@
             </section>
             <!-- <button class="saveCSV btn btn-warning ripple-surface">Download CSV</button> -->
             </section>
-            <footer class="bg-transparent  text-center text-lg-start">
-
+            <footer class="footer bg-transparent text-center text-lg-start">
                 <!-- Copyright -->
-                <div class="text-center p-3" style="background-color: white">
-                    © 2021 Copyright:
-                    <a class="text-info" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
+                <div class="text-center p-3" style="background-color: rgb(255, 255, 255)">
+                    © 2022 Copyright:
+                    <a class="text-primary" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
                 </div>
                 <!-- Copyright -->
             </footer>
@@ -230,21 +212,22 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
 </body>
 <script>
     var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 149, 153, 157, "2021-CD-CS-03"]
     var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 135, 139, 143, 147, 150, 155, '2020-CD-CS-02']
     var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 132, 137, 141, 145, 148, 152, 156, "2019-CS-133"]
-    window.onload = function() {
+    window.onload = function () {
 
-        $.each(classArr1, function(index, value) {
+        $.each(classArr1, function (index, value) {
             $("#col1").append("<button" + " id='" + value + "'>" + value + "</button><br>");
         });
-        $.each(classArr2, function(index, value) {
+        $.each(classArr2, function (index, value) {
             $("#col2").append("<button" + " id='" + value + "'>" + value + "</button><br>");
         });
-        $.each(classArr3, function(index, value) {
+        $.each(classArr3, function (index, value) {
             $("#col3").append("<button" + " id='" + value + "'>" + value + "</button><br>");
         });
         $("#col1").children("button").addClass("btn btn-dark ripple-surface ")
@@ -252,8 +235,8 @@
         $("#col3").children("button").addClass("btn btn-dark ripple-surface ")
     };
 
-    $(document).ready(function() {
-        $('div[id=reg]').on('click', "button[id^=1]", function() {
+    $(document).ready(function () {
+        $('div[id=reg]').on('click', "button[id^=1]", function () {
             var classYD = $(this).attr("class").split(/\s+/)
             flag = classYD.indexOf("btn-dark")
 
@@ -265,7 +248,7 @@
                 $(this).addClass("btn-dark")
             }
         })
-        $('div[id=reg]').on('click', "button[id^=20]", function() {
+        $('div[id=reg]').on('click', "button[id^=20]", function () {
             var classYD = $(this).attr("class").split(/\s+/)
             flag = classYD.indexOf("btn-dark")
 
@@ -277,7 +260,7 @@
                 $(this).addClass("btn-dark")
             }
         })
-        $('body').on('click', ".saveCSV", function() {
+        $('body').on('click', ".saveCSV", function () {
             file = $('#fileName').val()
             if (file == "") {
                 file = "Untitled";
@@ -290,7 +273,7 @@
                 }
             });
         })
-        $('.saveCSV').click(function() {
+        $('.saveCSV').click(function () {
             file = $('#fileName').val()
             if (file == "") {
                 file = "Untitled";
@@ -303,31 +286,31 @@
                 }
             });
         })
-        $('#fileName').click(function() {
+        $('#fileName').click(function () {
             $('#fileName').addClass('active')
         });
-        $('.all').click(function() {
-            $.each($('button[id^=1]'), function() {
+        $('.all').click(function () {
+            $.each($('button[id^=1]'), function () {
                 $(this).removeClass("btn-dark")
                 $(this).addClass("btn-success")
             })
-            $.each($('button[id^=2]'), function() {
+            $.each($('button[id^=2]'), function () {
                 $(this).removeClass("btn-dark")
                 $(this).addClass("btn-success")
             })
         });
-        $('.unAll').click(function() {
-            $.each($('button[id^=1]'), function() {
+        $('.unAll').click(function () {
+            $.each($('button[id^=1]'), function () {
                 $(this).removeClass("btn-success")
                 $(this).addClass("btn-dark")
             })
-            $.each($('button[id^=2]'), function() {
+            $.each($('button[id^=2]'), function () {
                 $(this).removeClass("btn-success")
                 $(this).addClass("btn-dark")
             })
         })
 
-        $('.tbBtn').click(function() {
+        $('.tbBtn').click(function () {
             $('.tableYD').empty()
             tb = '<table class="table table-striped">' +
                 '<thead>' +
@@ -337,14 +320,14 @@
                 '<th scope = "col"> Absent </th>' +
                 '</tr></thead><tbody>'
             present = []
-            $('.btn-success').each(function(ind, obj) {
+            $('.btn-success').each(function (ind, obj) {
                 present.push($(this).attr('id'))
             })
             absent = []
-            $('.btn-dark').each(function(ind, obj) {
-                    absent.push($(this).attr('id'))
-                })
-                // alert(present.length + ", " + absent.length)
+            $('.btn-dark').each(function (ind, obj) {
+                absent.push($(this).attr('id'))
+            })
+            // alert(present.length + ", " + absent.length)
             pInd = 0
             aInd = 0
             sr = 1
@@ -355,7 +338,7 @@
                     '<td>' + absent[aInd] + '</td>' +
                     '</tr>'
                 tb += row
-                    // $('.tableYD').append(row)
+                // $('.tableYD').append(row)
                 pInd++
                 aInd++
                 sr++
@@ -398,6 +381,9 @@
         })
 
     });
+</script>
+
+</html>
 </script>
 
 </html>

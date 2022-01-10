@@ -12,14 +12,26 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>YD-Tools</title>
     <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
+    <link rel="stylesheet" href="css/mycss.css" />
     <link rel="stylesheet" href="css/admin.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,13 +42,13 @@
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
                     <a href="index.html" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>YD Attendance System</span>
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Attendance</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
-                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Calculate Weightage</span>
+                    <a href="calculateWeightage.html" class="list-group-item list-group-item-action py-2 ripple ">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Find Weightage</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active"><i
+                            class="fas fa-lock fa-fw me-3"></i><span>Find Gpa</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                             class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple">
@@ -70,7 +82,7 @@
 
                 <!-- Brand -->
                 <a class="navbar-brand" href="#">
-                    <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+                    <img src="img/yd.png" height="40" alt="" loading="lazy" />
                 </a>
                 <!-- Search form -->
                 <form class="d-none d-md-flex input-group w-auto my-auto">
@@ -172,123 +184,45 @@
         <div class="container pt-4">
             <section class="border p-4 text-center mb-4">
                 <section class="text-center">
-                    <h1>Weightage Finder</h1>
+                    <h2>GPA Calculator</h2>
                     <hr class="my-4">
-                    <h3>YDRGZM</h3>
+                    <h4>YDRGZM</h4>
                     <hr class="my-4">
                 </section>
-                <div class="form-outline mb-4">
-                    <input type="text" id="mid" class="form-control" autocomplete="off">
-                    <label class="form-label" for="mid" style="margin-left: 0px">Mids Marks</label>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
+                <div class="grid-box">
+                    <div>
+                        <div class='form-outline mb-4' style="grid-template-columns: 6;">
+                            <input type='number' min=0 max="any" id='count' class='form-control' autocomplete='off' required>
+                            <label class='form-label' for='count' style='margin-left: 0px'>Enter Number of subjects</label>
+                            <div class='form-notch'>
+                                <div class='form-notch-leading' style='width: 9px'></div>
+                                <div class='form-notch-middle' style='width: 88.8px;'></div>
+                                <div class='form-notch-trailing'></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px;"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
+                    <button class=" btn btn-primary ripple-surface nextBtn ">Next</button>
                 </div>
-                <div class="form-outline mb-4">
-                    <input type="text" id="final" class="form-control" autocomplete="off">
-                    <label class="form-label" for="final" style="margin-left: 0px">Final Marks</label>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px;"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                </div>
-                <div class="form-outline mb-4">
-                    <input type="text" id="assign" class="form-control" autocomplete="off">
-                    <label class="form-label" for="assign" style="margin-left: 0px">Assignment Marks</label>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px;"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                </div>
-                <div class="form-outline mb-4">
-                    <input type="text" id="squiz" class="form-control" autocomplete="off">
-                    <label class="form-label" for="squiz" style="margin-left: 0px">Surprise Quiz Marks</label>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px;"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                </div>
-                <div class="form-outline mb-4">
-                    <input type="text" id="quiz" class="form-control" autocomplete="off">
-                    <label class="form-label" for="quiz" style="margin-left: 0px">Quiz Marks</label>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                    <div class="form-notch">
-                        <div class="form-notch-leading" style="width: 9px;"></div>
-                        <div class="form-notch-middle" style="width: 88.8px;"></div>
-                        <div class="form-notch-trailing"></div>
-                    </div>
-                </div>
-                <button class="btn btn-primary ripple-surface calBtn">Calculate</button>
-                <p id="result"></p>
 
+                <div id="inputField"></div>
+                <p id='result' style="margin-top: 10px; font-size: larger; "></p>
             </section>
 
-            <footer class="bg-transparent  text-center text-lg-start">
+            <footer class="footer bg-transparent text-center text-lg-start ">
                 <!-- Copyright -->
-                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                    © 2021 Copyright:
-                    <a class="text-info" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
+                <div class="text-center p-3 " style="background-color: rgb(255, 255, 255) ">
+                    © 2022 Copyright:
+                    <a class="text-primary " href="https://github.com/ydrgzm ">Muhammad Zeshan Ayub</a>
                 </div>
                 <!-- Copyright -->
             </footer>
-
         </div>
     </main>
     <!--Main layout-->
     <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript " src="js/mdb.min.js "></script>
 
-    <script>
-        var btn = document.getElementsByClassName("calBtn")[0];
-        btn.addEventListener('click', function() {
-            var mid = Number(document.getElementById('mid').value);
-            var final = Number(document.getElementById('final').value);
-            var squiz = Number(document.getElementById('squiz').value);
-            var quiz = Number(document.getElementById('quiz').value);
-            var assign = Number(document.getElementById('assign').value);
-            final /= 40;
-            final *= 30;
-            assign /= 40;
-            assign *= 10;
-            squiz /= 25;
-            squiz *= 10;
-            quiz /= 45;
-            quiz *= 10;
-            var result = 10 + final + quiz + assign + squiz + mid;
-            document.getElementById("result").innerText = "Percentage = " + result;
-        });
-    </script>
 </body>
+<script src="js/gpa.js "></script>
 
 </html>
