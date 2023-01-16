@@ -17,7 +17,7 @@
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/mdb.dark.min.css" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/admin.css" />
     <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
@@ -37,7 +37,7 @@
     <!--Main Navigation-->
     <header>
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
@@ -71,7 +71,7 @@
         <!-- Sidebar -->
 
         <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
@@ -158,16 +158,31 @@
                 <h3>YDRGZM</h3>
                 <hr class="my-4">
 
-                <select class="form-select mb-4" id="CourseName" aria-label="Select Course" style="width:-webkit-fill-available">
+                <select class="form-select mb-4" id="CourseName" aria-label="Select Course"
+                    style="width:-webkit-fill-available">
                     <option selected>Select Course</option>
-                    <option value="PPSD">PPSD</option>
-                    <option value="BDA">BDA</option>
-                    <option value="SE">SE</option>
-                    <option value="AI">AI</option>
-                    <option value="SE Lab">SE Lab</option>
-                    <option value="AI Lab">AI Lab</option>
+                    <option value="CN">CN</option>
+                    <option value="CN Lab">CN Lab</option>
+                    <option value="MAD">MAD</option>
+                    <option value="GT">GT</option>
+                    <option value="IPDS">IPDS</option>
+                    <option value="ICS">ICS</option>
+                    <option value="QT">QT</option>
                 </select>
-
+                <div class="form-outline mb-4">
+                    <input type="date" id="aDate" class="form-control">
+                    <!-- <label class="form-label" for="fileName" style="margin-left: 0px">Related Info</label> -->
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px"></div>
+                        <div class="form-notch-middle" style="width: 88.8px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;"></div>
+                        <div class="form-notch-middle" style="width: 88.8px;"></div>
+                        <div class="form-notch-trailing"></div>
+                    </div>
+                </div>
                 <div class="form-outline mb-4">
                     <input type="text" id="fileName" class="form-control" autocomplete="off">
                     <label class="form-label" for="fileName" style="margin-left: 0px">Related Info</label>
@@ -210,9 +225,9 @@
             </section>
             <footer class="footer bg-transparent text-center text-lg-start">
                 <!-- Copyright -->
-                <div class="text-center p-3" style="background-color: rgb(255, 255, 255)">
-                    © 2022 Copyright:
-                    <a class="text-primary" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a>
+                <div class="text-center p-3" >
+                    <p class="text-white">© 2022 Copyright: <span><a class="text-primary" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a></span></p>
+                    
                 </div>
                 <!-- Copyright -->
             </footer>
@@ -222,15 +237,20 @@
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Custom scripts -->
-    <script type="text/javascript" src="js/admin.js"></script>
+    <!-- <script type="text/javascript" src="js/admin.js"></script> -->
     <script type="text/javascript" src="js/index.js"></script>
 
 </body>
 <script>
-    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 134, 138, 142, 146, 153, 157, "2021-CD-CS-03"]
-    var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 135, 139, 143, 147, 150, 155, '2020-CD-CS-02']
-    var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 132, 137, 141, 145, 148, 152, 156, "2019-CS-133"]
+    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 137, 141, 145, 148, 153, 157]
+    var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 138, 142, 146, 150, 155, '2020-CD-CS-02']
+    var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 135, 139, 143, 147, 152, 156, "2019-CS-133"]
     window.onload = function () {
+        var now = new Date();
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+        var today = now.getFullYear() + "-" + (month) + "-" + (day);
+        $('#aDate').val(today);
 
         $.each(classArr1, function (index, value) {
             $("#col1").append("<button" + " id='" + value + "'>" + value + "</button><br>");
@@ -271,8 +291,19 @@
                 $(this).addClass("btn-dark")
             }
         })
+        Date.prototype.monthNames = [
+            "Jan", "Feb", "March",
+            "April", "May", "June",
+            "July", "Aug", "Sept",
+            "Oct", "Nov", "Dec"
+        ];
+
+        Date.prototype.getMonthName = function () {
+            return this.monthNames[this.getMonth()];
+        };
         $('body').on('click', ".saveCSV", function () {
-            file = $('#CourseName').val()+" "+$('#fileName').val()
+            var d = new Date($('#aDate').val());
+            file = $('#CourseName').val() +" "+ d.getMonthName() + " " + d.getDay() + $('#fileName').val()
             if (file == "") {
                 file = "Untitled";
             }
@@ -338,6 +369,13 @@
             $('.btn-dark').each(function (ind, obj) {
                 absent.push($(this).attr('id'))
             })
+
+            present.sort(function (a, b) {
+                return a - b;
+            });
+            absent.sort(function (a, b) {
+                return a - b;
+            });
             // alert(present.length + ", " + absent.length)
             pInd = 0
             aInd = 0
