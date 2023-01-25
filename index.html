@@ -284,7 +284,7 @@
                 $(this).addClass("btn-dark")
             }
         })
-        $('div[id=reg]').on('click', "button[id^=20]", function () {
+        $('div[id=reg]').on('click', "button[id^=2]", function () {
             var classYD = $(this).attr("class").split(/\s+/)
             flag = classYD.indexOf("btn-dark")
 
@@ -372,7 +372,9 @@
             })
             absent = []
             $('.btn-dark').each(function (ind, obj) {
-                absent.push($(this).attr('id'))
+                if($(this).attr('id')!="YD"){
+                    absent.push($(this).attr('id'))
+                }
             })
 
             present.sort(function (a, b) {
