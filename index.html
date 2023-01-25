@@ -225,9 +225,10 @@
             </section>
             <footer class="footer bg-transparent text-center text-lg-start">
                 <!-- Copyright -->
-                <div class="text-center p-3" >
-                    <p class="text-white">© 2022 Copyright: <span><a class="text-primary" href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a></span></p>
-                    
+                <div class="text-center p-3">
+                    <p class="text-white">© 2022 Copyright: <span><a class="text-primary"
+                                href="https://github.com/ydrgzm">Muhammad Zeshan Ayub</a></span></p>
+
                 </div>
                 <!-- Copyright -->
             </footer>
@@ -242,9 +243,9 @@
 
 </body>
 <script>
-    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 137, 141, 145, 148, 153, 157,134]
-    var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 138, 142, 146, 150, 155, '2020-CD-CS-02']
-    var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 135, 139, 143, 147, 152, 156, "2019-CS-133"]
+    var classArr1 = [101, 104, 110, 113, 116, 119, 124, 127, 130, 137, 141, 145, 148, 153, 157, '2019-CS-133']
+    var classArr2 = [102, 107, 111, 114, 117, 120, 125, 128, 131, 138, 142, 146, 150, 155, 24, '2020-CD-CS-02']
+    var classArr3 = [103, 108, 112, 115, 118, 123, 126, 129, 135, 139, 143, 147, 152, 156, 134, 'YD']
     window.onload = function () {
         var now = new Date();
         var day = ("0" + now.getDate()).slice(-2);
@@ -253,13 +254,17 @@
         $('#aDate').val(today);
 
         $.each(classArr1, function (index, value) {
-            $("#col1").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+            $("#col1").append("<button" + " id='" + value + "' style='padding: 0px;height: 36px;'>" + value + "</button><br>");
         });
         $.each(classArr2, function (index, value) {
-            $("#col2").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+            $("#col2").append("<button" + " id='" + value + "' style='padding: 0px;height: 36px;'>" + value + "</button><br>");
         });
         $.each(classArr3, function (index, value) {
-            $("#col3").append("<button" + " id='" + value + "'>" + value + "</button><br>");
+            if (value == 'YD') {
+                $("#col3").append("<button" + " id='" + value + "' style='padding: 0px;height: 36px;' disabled>" + value + "</button><br>");
+            } else {
+                $("#col3").append("<button" + " id='" + value + "' style='padding: 0px;height: 36px;'>" + value + "</button><br>");
+            }
         });
         $("#col1").children("button").addClass("btn btn-dark ripple-surface ")
         $("#col2").children("button").addClass("btn btn-dark ripple-surface ")
@@ -303,7 +308,7 @@
         };
         $('body').on('click', ".saveCSV", function () {
             var d = new Date($('#aDate').val());
-            file = $('#CourseName').val() +" "+ d.getMonthName() + " " + d.getDay() + $('#fileName').val()
+            file = $('#CourseName').val() + " " + d.getMonthName() + " " + d.getDate() + $('#fileName').val()
             if (file == "") {
                 file = "Untitled";
             }
